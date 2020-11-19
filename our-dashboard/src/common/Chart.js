@@ -1,32 +1,18 @@
 import React from "react";
-import { Line, Bar, Scatter, Doughnut } from "react-chartjs-2";
+import {
+  Line,
+  Bar,
+  Scatter,
+  Doughnut,
+  Radar,
+  Polar,
+  Bubble,
+} from "react-chartjs-2";
 
-const Chart = ({variant, data, labels, title}) => {
+const Chart = ({ variant, data, labels, title }) => {
   const chartData = {
     labels,
-    datasets: [
-      {
-        label: title,
-        data,
-        backgroundColor: [
-          "rgba(255, 99, 132, 0.2)",
-          "rgba(54, 162, 235, 0.2)",
-          "rgba(255, 206, 86, 0.2)",
-          "rgba(75, 192, 192, 0.2)",
-          "rgba(153, 102, 255, 0.2)",
-          "rgba(255, 159, 64, 0.2)",
-        ],
-        borderColor: [
-          "rgba(255, 99, 132, 1)",
-          "rgba(54, 162, 235, 1)",
-          "rgba(255, 206, 86, 1)",
-          "rgba(75, 192, 192, 1)",
-          "rgba(153, 102, 255, 1)",
-          "rgba(255, 159, 64, 1)",
-        ],
-        borderWidth: 1,
-      },
-    ],
+    datasets: [],
 
     options:
       variant === "Scatter"
@@ -53,6 +39,34 @@ const Chart = ({variant, data, labels, title}) => {
           },
   };
 
+  let i = 1;
+
+  for (let set of data) {
+    chartData.datasets.push({
+      label: `${title} ${i}`,
+      data: set,
+      backgroundColor: [
+        "rgba(255, 99, 132, 0.2)",
+        "rgba(54, 162, 235, 0.2)",
+        "rgba(255, 206, 86, 0.2)",
+        "rgba(75, 192, 192, 0.2)",
+        "rgba(153, 102, 255, 0.2)",
+        "rgba(255, 159, 64, 0.2)",
+      ],
+      borderColor: [
+        "rgba(255, 99, 132, 1)",
+        "rgba(54, 162, 235, 1)",
+        "rgba(255, 206, 86, 1)",
+        "rgba(75, 192, 192, 1)",
+        "rgba(153, 102, 255, 1)",
+        "rgba(255, 159, 64, 1)",
+      ],
+      borderWidth: 1,
+    });
+
+    i++;
+  }
+
   switch (variant) {
     case "Bar":
       return <Bar data={chartData} />;
@@ -62,6 +76,12 @@ const Chart = ({variant, data, labels, title}) => {
       return <Scatter data={chartData} />;
     case "Doughnut":
       return <Doughnut data={chartData} />;
+    case "Radar":
+      return <Radar data={chartData} />;
+    case "Polar":
+      return <Polar data={chartData} />;
+    case "Bubble":
+      return <Bubble data={chartData} />;
     default:
       return <p>Must specific variant</p>;
   }

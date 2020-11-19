@@ -5,28 +5,63 @@ import Chart from "common/Chart";
 const Home = () => {
   const labels = ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"];
   const title = "# of Votes";
-  const data = [12, 19, 3, 5, 2, 3];
+  const data = [[12, 19, 3, 5, 2, 3]];
+  const radarData = [
+    [12, 19, 3, 5, 2, 3],
+    [15, 11, 8, 10, 4, 9],
+  ];
   const scatterData = [
-    {
-      x: 23,
-      y: 12,
-    },
-    {
-      x: 5,
-      y: 15,
-    },
-    {
-      x: 20,
-      y: 17,
-    },
-    {
-      x: 7,
-      y: 13,
-    },
-    {
-      x: 18,
-      y: 19,
-    },
+    [
+      {
+        x: 23,
+        y: 12,
+      },
+      {
+        x: 5,
+        y: 15,
+      },
+      {
+        x: 20,
+        y: 17,
+      },
+      {
+        x: 7,
+        y: 13,
+      },
+      {
+        x: 18,
+        y: 19,
+      },
+    ],
+  ];
+  const bubbleData = [
+    [
+      {
+        x: 23,
+        y: 12,
+        r: 11,
+      },
+      {
+        x: 5,
+        y: 15,
+        r: 14,
+      },
+      {
+        x: 20,
+        y: 17,
+        r: 9,
+      },
+      {
+        x: 7,
+        y: 13,
+        r: 19,
+      },
+      {
+        x: 18,
+        y: 19,
+        r: 15,
+      },
+    ],
   ];
 
   return (
@@ -125,6 +160,110 @@ const Home = () => {
               >
                 <Chart
                   variant="Doughnut"
+                  data={data}
+                  labels={labels}
+                  title={title}
+                />
+              </Paper>
+            </Grid>
+          </Grid>
+        </Grid>
+      </div>
+
+      <div style={{ marginBottom: "2.5%" }}>
+        <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+          style={{ width: "85vw" }}
+        >
+          <Grid item style={{ width: "47.5%", marginRight: "5%" }}>
+            <Grid
+              container
+              direction="column"
+              justify="center"
+              alignItems="center"
+            >
+              <Paper
+                style={{ width: "100%", backgroundColor: "#393e46" }}
+                elevation="3"
+              >
+                <Chart
+                  variant="Radar"
+                  data={radarData}
+                  labels={labels}
+                  title={title}
+                />
+              </Paper>
+            </Grid>
+          </Grid>
+
+          <Grid item style={{ width: "47.5%" }}>
+            <Grid
+              container
+              direction="column"
+              justify="center"
+              alignItems="center"
+            >
+              <Paper
+                style={{ width: "100%", backgroundColor: "#393e46" }}
+                elevation="3"
+              >
+                <Chart
+                  variant="Polar"
+                  data={data}
+                  labels={labels}
+                  title={title}
+                />
+              </Paper>
+            </Grid>
+          </Grid>
+        </Grid>
+      </div>
+
+      <div style={{ marginBottom: "2.5%" }}>
+        <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+          style={{ width: "85vw" }}
+        >
+          <Grid item style={{ width: "47.5%", marginRight: "5%" }}>
+            <Grid
+              container
+              direction="column"
+              justify="center"
+              alignItems="center"
+            >
+              <Paper
+                style={{ width: "100%", backgroundColor: "#393e46" }}
+                elevation="3"
+              >
+                <Chart
+                  variant="Bubble"
+                  data={bubbleData}
+                  labels={labels}
+                  title={title}
+                />
+              </Paper>
+            </Grid>
+          </Grid>
+
+          <Grid item style={{ width: "47.5%" }}>
+            <Grid
+              container
+              direction="column"
+              justify="center"
+              alignItems="center"
+            >
+              <Paper
+                style={{ width: "100%", backgroundColor: "#393e46" }}
+                elevation="3"
+              >
+                <Chart
+                  variant="Polar"
                   data={data}
                   labels={labels}
                   title={title}
