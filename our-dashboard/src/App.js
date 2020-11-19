@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { AppBar, Toolbar, Typography, Button } from "@material-ui/core";
+import { Home } from "constants/sections";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <AppBar
+        position="static"
+        style={{ backgroundColor: "#00adb5", marginBottom: "2.5%" }}
+      >
+        <Toolbar>
+          <Typography variant="h6">News</Typography>
+          <Button color="inherit">Login</Button>
+        </Toolbar>
+      </AppBar>
+
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItem: "center",
+        }}
+      >
+        <Home />
+      </div>
     </div>
   );
 }
