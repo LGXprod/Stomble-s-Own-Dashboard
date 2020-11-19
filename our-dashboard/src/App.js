@@ -37,6 +37,13 @@ function App() {
               >
                 Query Data
               </Button>
+              <Button
+                style={{ margin: "0 auto", width: "50%" }}
+                color="inherit"
+                onClick={() => setShowSection(null)}
+              >
+                Logout
+              </Button>
             </Toolbar>
           </div>
         </AppBar>

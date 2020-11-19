@@ -11,7 +11,7 @@ function createWindow () {
       preload: path.join(__dirname, 'preload.js')
     },
     title: "Stomble Analytics",
-    icon: "assets/StombleIcon.png"
+    icon: __dirname + "/assets/StombleIcon.png"
   })
 
   // and load the index.html of the app.
